@@ -1368,7 +1368,7 @@ type SecretVolumeSource struct {
 }
 
 const (
-	SecretVolumeSourceDefaultMode int32 = 0644
+	SecretVolumeSourceDefaultMode int32 = 0o644
 )
 
 // Adapts a secret into a projected volume.
@@ -1804,7 +1804,7 @@ type ConfigMapVolumeSource struct {
 }
 
 const (
-	ConfigMapVolumeSourceDefaultMode int32 = 0644
+	ConfigMapVolumeSourceDefaultMode int32 = 0o644
 )
 
 // Adapts a ConfigMap into a projected volume.
@@ -1942,7 +1942,7 @@ type VolumeProjection struct {
 }
 
 const (
-	ProjectedVolumeSourceDefaultMode int32 = 0644
+	ProjectedVolumeSourceDefaultMode int32 = 0o644
 )
 
 // Maps a string key to a path within a volume.
@@ -6557,8 +6557,8 @@ type LocalObjectReference struct {
 	// Name of the referent.
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 	// TODO: Add other useful fields. apiVersion, kind, uid?
-	// +optional
-	Name string `json:"name,omitempty" protobuf:"bytes,1,opt,name=name"`
+	// +required
+	Name string `json:"name" protobuf:"bytes,1,opt,name=name"`
 }
 
 // TypedLocalObjectReference contains enough information to let you locate the
@@ -7226,7 +7226,7 @@ type DownwardAPIVolumeSource struct {
 }
 
 const (
-	DownwardAPIVolumeSourceDefaultMode int32 = 0644
+	DownwardAPIVolumeSourceDefaultMode int32 = 0o644
 )
 
 // DownwardAPIVolumeFile represents information to create the file containing the pod field
